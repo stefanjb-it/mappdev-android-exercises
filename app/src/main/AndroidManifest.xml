@@ -8,9 +8,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.LoggingViewsAndActivity">
+        <activity android:name=".LessonListActivity"
+            android:parentActivityName=".MainActivity"/>
+        <activity android:name=".LessonRatingActivity"
+            android:parentActivityName=".LessonListActivity"/>
         <activity android:name=".RatingActivity" />
         <activity android:name=".ViewsActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

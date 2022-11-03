@@ -39,6 +39,11 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, RatingActivity::class.java)
             startActivity(intent)
         }
+
+        findViewById<Button>(R.id.open_lessons).setOnClickListener {
+            val intent = Intent(this, LessonListActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
