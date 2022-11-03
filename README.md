@@ -1,1 +1,0 @@
-# mappdev-android-exercises
