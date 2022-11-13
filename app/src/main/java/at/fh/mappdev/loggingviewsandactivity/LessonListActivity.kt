@@ -6,24 +6,78 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.squareup.moshi.JsonClass
+import com.squareup.moshi.Moshi
 
 class LessonListActivity : AppCompatActivity() {
     val lessonAdapter = LessonAdapter() { /*Toast.makeText(this, "Lesson with name: ${it.name} has been clicked", Toast.LENGTH_LONG).show()*/
         val intent = Intent(this,LessonRatingActivity::class.java)
         intent.putExtra(EXTRA_LESSON_ID,it.id)
-        startActivity(intent)}
+        startActivityForResult(intent,ADD_OR_EDIT_RATING_REQUEST)
+    }
 
     companion object {
+        val ADD_OR_EDIT_RATING_REQUEST = 1
         val EXTRA_LESSON_ID = "LESSON_ID_EXTRA"
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == ADD_OR_EDIT_RATING_REQUEST && resultCode == RESULT_OK) {
+            LessonRepository.lessonsList(
+                success = {
+                    lessonAdapter.updateList(it)
+                },
+                error = {
+                    lessonAdapter.updateList(emptyList())
+                    Toast.makeText(applicationContext,"Couldn't load lessons from API!",Toast.LENGTH_SHORT).show()
+                }
+            )
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_lesson_list)
+        LessonRepository.lessonsList(
+            success = {
+                lessonAdapter.updateList(it)
+            },
+            error = {
+                lessonAdapter.updateList(emptyList())
+                Toast.makeText(applicationContext,"Couldn't load lessons from API!",Toast.LENGTH_SHORT).show()
+            }
+        )
 
-        lessonAdapter.updateList(LessonRepository.lessonsList())
         val recyclerView = findViewById<RecyclerView>(R.id.lesson_recycler_view)
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.adapter = lessonAdapter
+        parseJson()
+        SleepyAsyncTask().execute()
+    }
+
+    fun parseJson() {
+        val moshi = Moshi.Builder().build()
+        val jsonAdapter = moshi.adapter<Lesson>(Lesson::class.java)
+        val json = """
+            {
+                "id": "1",
+                "name": "Lecture 0",
+                "date": "09.10.2019",
+                "topic": "Introduction",
+                "type": "LECTURE",
+                "lecturers": [
+                    {
+                        "name": "Lukas Bloder"
+                    },
+                    {
+                        "name": "Peter Salhofer"
+                    }
+                ],
+                "ratings": []
+            }
+        """
+        val result = jsonAdapter.fromJson(json)
+        println("DISSECTED RESULT: "+result?.name)
     }
 }
