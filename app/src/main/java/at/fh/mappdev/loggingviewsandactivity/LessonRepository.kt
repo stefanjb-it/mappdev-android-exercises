@@ -18,7 +18,8 @@ object LessonRepository {
                 "Introduction",
                 LessonType.LECTURE,
                 listOf( lecturerSalhofer, lecturerBloder ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("1",
                 "Lecture 1",
@@ -26,7 +27,8 @@ object LessonRepository {
                 "Go2Kotlin",
                 LessonType.LECTURE,
                 listOf( lecturerSalhofer ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("2",
                 "Exercise 1",
@@ -34,7 +36,8 @@ object LessonRepository {
                 "Go2Kotlin",
                 LessonType.PRACTICAL,
                 listOf( lecturerSalhofer ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("3",
                 "Lecture 2",
@@ -42,7 +45,8 @@ object LessonRepository {
                 "Go2Kotlin-OOP",
                 LessonType.LECTURE,
                 listOf( lecturerSalhofer ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("4",
                 "Exercise 2",
@@ -50,7 +54,8 @@ object LessonRepository {
                 "Go2Kotlin-OOP",
                 LessonType.PRACTICAL,
                 listOf( lecturerSalhofer ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("5",
                 "Lecture 3",
@@ -58,7 +63,8 @@ object LessonRepository {
                 "SCM",
                 LessonType.LECTURE,
                 listOf( lecturerSalhofer ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("6",
                 "Lecture 4",
@@ -66,7 +72,8 @@ object LessonRepository {
                 "Android Basics",
                 LessonType.LECTURE,
                 listOf( lecturerBloder ),
-                mutableListOf( )
+                mutableListOf( ),
+                ""
             ),
             Lesson("7",
                 "Exercise 4",
@@ -74,7 +81,8 @@ object LessonRepository {
                 "Android Basics",
                 LessonType.PRACTICAL,
                 listOf( lecturerBloder ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("8",
                 "Lecture 5",
@@ -82,7 +90,8 @@ object LessonRepository {
                 "Recycler View",
                 LessonType.LECTURE,
                 listOf( lecturerBloder ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             ),
             Lesson("9",
                 "Exercise 5",
@@ -90,7 +99,8 @@ object LessonRepository {
                 "Android Basics",
                 LessonType.PRACTICAL,
                 listOf( lecturerBloder ),
-                mutableListOf()
+                mutableListOf(),
+                ""
             )
         )
     }

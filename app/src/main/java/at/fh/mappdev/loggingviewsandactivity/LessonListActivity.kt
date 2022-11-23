@@ -74,7 +74,8 @@ class LessonListActivity : AppCompatActivity() {
                         "name": "Peter Salhofer"
                     }
                 ],
-                "ratings": []
+                "ratings": [],
+                "imageUrl": ""
             }
         """
         val result = jsonAdapter.fromJson(json)
