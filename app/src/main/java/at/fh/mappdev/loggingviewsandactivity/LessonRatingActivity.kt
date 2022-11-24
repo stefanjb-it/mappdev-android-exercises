@@ -41,9 +41,16 @@ class LessonRatingActivity : AppCompatActivity() {
                     .with(this)
                     .load(lesson.imageUrl)
                     .into(imageView)
+                findViewById<Button>(R.id.btn_openNote).setOnClickListener {
+                    val intent = Intent(this, LessonNoteActivity::class.java);
+                    intent.putExtra("name", lesson.name)
+                    intent.putExtra("id", lesson.id)
+                    startActivity(intent)
+                }
 
             }, { errorMessage ->
                 findViewById<TextView>(R.id.lesson_rating_header).text = errorMessage
+
             })
 
         }

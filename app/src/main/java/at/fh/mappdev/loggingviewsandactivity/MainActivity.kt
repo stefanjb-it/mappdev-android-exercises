@@ -4,7 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, LessonListActivity::class.java)
             startActivity(intent)
         }
+        findViewById<Button>(R.id.open_settings).setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun onStart() {
@@ -54,6 +61,11 @@ class MainActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         Log.w("MyActivity", "onResume")
+        val SharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE)
+        findViewById<TextView>(R.id.textView_username).text = SharedPreferences.getString("USERNAME", "USERNAME")
+        if (SharedPreferences.getBoolean("DARKMODE", SettingsActivity.DARKMODE)) AppCompatDelegate.setDefaultNightMode(
+            AppCompatDelegate.MODE_NIGHT_YES) else AppCompatDelegate.setDefaultNightMode(
+            AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     override fun onPause() {
