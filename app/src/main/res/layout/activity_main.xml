@@ -40,12 +40,18 @@
         android:layout_weight="1"
         android:text="Views" />
 
+    <Button
+        android:id="@+id/open_viewmodel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Viewmodel" />
+
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="178dp"
         android:layout_marginBottom="313dp"
-        app:constraint_referenced_ids="open_views,open_rating,share_main,open_lessons,open_settings"
+        app:constraint_referenced_ids="open_views,open_rating,share_main,open_lessons,open_settings,open_viewmodel"
         app:flow_horizontalGap="20dp"
         app:flow_maxElementsWrap="3"
         app:flow_verticalGap="10dp"
