@@ -29,7 +29,7 @@ class LessonRatingActivity : AppCompatActivity() {
                 val roundoff = df.format(lesson.ratingAverage())
                 findViewById<TextView>(R.id.avg_lesson_rating_value).text = roundoff
 
-                for (lessonrating in lesson.ratings){
+                for (lessonrating in lesson.ratings?: mutableListOf()){
                     if (lessonrating.feedback != ""){
                         findViewById<TextView>(R.id.lesson_rating_last_feedback).text = lessonrating.feedback
                         break

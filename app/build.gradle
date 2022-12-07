@@ -31,21 +31,58 @@ android {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.4.0'
-    implementation 'com.google.android.material:material:1.4.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.7.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'junit:junit:4.12'
+    testImplementation 'junit:junit:4.+'
+    implementation 'androidx.recyclerview:recyclerview:1.2.1'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
     implementation 'com.squareup.moshi:moshi:1.14.0'
+    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.14.0'
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-moshi:2.9.0'
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     implementation 'androidx.room:room-runtime:2.4.3'
     kapt 'androidx.room:room-compiler:2.4.3'
-    kapt 'com.squareup.moshi:moshi-kotlin-codegen:1.14.0'
-    testImplementation 'junit:junit:4.+'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    // ViewModel
     implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.1"
+    // LiveData
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.5.1"
+    // Extensions for Activity (e.g. by viewmodels)
     implementation "androidx.activity:activity-ktx:1.6.1"
+
+    //Test Dependencies
+    testImplementation 'org.mockito:mockito-inline:4.8.0'
+    testImplementation "com.google.truth:truth:1.1"
+
+    //Android Test Dependencies
+    androidTestImplementation 'androidx.test:core:1.5.0'
+
+    // AndroidJUnitRunner and JUnit Rules
+    androidTestImplementation 'androidx.test:runner:1.5.1'
+    androidTestImplementation 'androidx.test:rules:1.5.0'
+
+    // Assertions
+    androidTestImplementation 'androidx.test.ext:junit:1.1.4'
+    androidTestImplementation 'androidx.test.ext:truth:1.5.0'
+    androidTestImplementation 'com.google.truth:truth:1.1'
+
+    // Espresso dependencies
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-contrib:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-intents:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-accessibility:3.5.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-web:3.5.0'
+    androidTestImplementation 'androidx.test.espresso.idling:idling-concurrent:3.5.0'
+    androidTestImplementation 'org.hamcrest:hamcrest:2.2'
+
+    // The following Espresso dependency can be either "implementation"
+    // or "androidTestImplementation", depending on whether you want the
+    // dependency to appear on your APK's compile classpath or the test APK
+    // classpath.
+    androidTestImplementation 'androidx.test.espresso:espresso-idling-resource:3.5.0'
 }
