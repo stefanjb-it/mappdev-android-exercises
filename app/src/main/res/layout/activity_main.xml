@@ -46,12 +46,18 @@
         android:layout_height="wrap_content"
         android:text="Viewmodel" />
 
+    <Button
+        android:id="@+id/open_compose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Compose" />
+
     <androidx.constraintlayout.helper.widget.Flow
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="178dp"
         android:layout_marginBottom="313dp"
-        app:constraint_referenced_ids="open_views,open_rating,share_main,open_lessons,open_settings,open_viewmodel"
+        app:constraint_referenced_ids="open_views,open_rating,share_main,open_lessons,open_settings,open_viewmodel,open_compose"
         app:flow_horizontalGap="20dp"
         app:flow_maxElementsWrap="3"
         app:flow_verticalGap="10dp"

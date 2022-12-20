@@ -11,6 +11,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.LoggingViewsAndActivity">
         <activity
+            android:name=".ComposeActivity"
+            android:exported="false"
+            android:label="@string/title_activity_compose"
+            android:theme="@style/Theme.LoggingViewsAndActivity">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+        <activity
             android:name=".ViewModelActivity"
             android:exported="false">
             <meta-data
